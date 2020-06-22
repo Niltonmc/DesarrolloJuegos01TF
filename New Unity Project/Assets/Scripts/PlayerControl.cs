@@ -67,7 +67,7 @@ public class PlayerControl : MonoBehaviour{
         currentPosX = Mathf.Clamp(rbPlayer.position.x, minPosX, maxPosX);
 		rbPlayer.position = new Vector2 (currentPosX, currentPosY);
 
-        if (Input.GetButton("Fire1") && canShoot == true){
+        if (Input.GetButton("Jump") && canShoot == true){
             Shoot();
             currentTimeToShoot = 0;
             canShoot = false;

@@ -27,6 +27,7 @@ public class GameManagerControl : MonoBehaviour{
     public SFXControl sfxShoot;
     public SFXControl sfxDie;
     public SFXControl sfxLives;
+    public SFXControl sfxButton;
 
     [Header("Live Prefab Variables")]
     public GameObject livePrefab;
@@ -43,13 +44,28 @@ public class GameManagerControl : MonoBehaviour{
     private float currentTimeToCreatePlayerLive;
 
     [Header("Pause Variables")]
+    public GameObject pauseContainer;
     public Button btnPause;
+    public Button btnHome;
+    public Button btnPlay;
+    public Button btnRetry;
+
+    [Header("Game Over Variables")]
+    public GameObject gameOverContainer;
+
+    [Header("Loading Variables")]
+     public LoadingControl loadingPlay;
+     public LoadingControl loadingMenu;
 
     // Start is called before the first frame update
     void Start(){
         CreatePlayer();
         UpdateScore(0);
         btnPause.onClick.AddListener(() => ChangeGameState());
+        btnPlay.onClick.AddListener(() => ChangeGameState());
+        btnRetry.onClick.AddListener(() => RetryLevel());
+        btnHome.onClick.AddListener(() => GoHome());
+        pauseContainer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -103,15 +119,33 @@ public class GameManagerControl : MonoBehaviour{
     }
 
     void ChangeGameState(){
+        sfxButton.PlaySound();
         float tmp = Time.timeScale;
         if(tmp == 1){
             Time.timeScale = 0;
+            pauseContainer.SetActive(true);
         }else{
             Time.timeScale = 1;
+             pauseContainer.SetActive(false);
         }
     }
 
+    void RetryLevel(){
+        sfxButton.PlaySound();
+        loadingPlay.ActivateLoadingCanvas();
+        Time.timeScale = 1;
+    }
+
+    void GoHome(){
+        sfxButton.PlaySound();
+        loadingMenu.ActivateLoadingCanvas();
+        Time.timeScale = 1;
+    }
+
     void GameOver(){
-        SceneManager.LoadScene("Gameplay");
+        currentPlayer.gameObject.SetActive(false);
+        Time.timeScale = 0;
+        gameOverContainer.SetActive(true);
+        gameOverContainer.GetComponent<GameOverManagerControl>().SetScore(currentScore);
     }
 }

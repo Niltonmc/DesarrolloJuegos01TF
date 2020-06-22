@@ -9,6 +9,7 @@ public class SFXControl : MonoBehaviour{
 	private float sfxValue;
 	public bool canPlaySound;
 	private AudioSource audioSour;
+	public string soundPref;
 
 	void Awake(){
 		GetInitialComponents ();
@@ -27,7 +28,7 @@ public class SFXControl : MonoBehaviour{
 	}
 
 	public void SetNewSFXValue(){
-		sfxValue = PlayerPrefs.GetFloat ("SFXValue",1);
+		sfxValue = PlayerPrefs.GetFloat (soundPref,1);
 		sfxValue = sfxValue * maxVolumenValue;
 		audioSour.volume = sfxValue;
 	}
