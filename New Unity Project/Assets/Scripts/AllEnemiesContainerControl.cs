@@ -29,6 +29,10 @@ public class AllEnemiesContainerControl : MonoBehaviour{
     [Header("Enemy List Variables")]
     public List<EnemyControl> allEnemiesList;
 
+    [Header("Enemy Types Variables")]
+    public List<Sprite> allEnemiesSprites;
+    public List<string> allEnemiesTypes;
+
     [Header("SFX Variables")]
     public SFXControl sfxShoot;
     public SFXControl sfxDie;
@@ -53,13 +57,20 @@ public class AllEnemiesContainerControl : MonoBehaviour{
 
     void CreateEnemy(){
         Vector2 enemyPos = GetRandomPos();
+        int enemyTpe = SelectEnemyType();
         enemyCreated = Instantiate(enemyPref,enemyPos,
         enemyPref.transform.rotation).GetComponent<EnemyControl>();
         enemyCreated.SelectSpeed(minSpeedEnemyMovement,maxSpeedEnemyMovement);
         enemyCreated.SetEnemyContainer(this.gameObject.GetComponent<AllEnemiesContainerControl>());
         enemyCreated.SetSFXs(sfxShoot,sfxDie);
+        enemyCreated.SetEnemyType(allEnemiesSprites[enemyTpe],enemyTpe,allEnemiesTypes[enemyTpe]);
         enemyCreated.transform.SetParent(this.gameObject.transform);
         allEnemiesList.Add(enemyCreated);
+    }
+
+    int SelectEnemyType(){
+        int enemyType = Random.Range(0,allEnemiesSprites.Count);
+        return enemyType;
     }
 
     float GetRandomTime(){
@@ -75,5 +86,36 @@ public class AllEnemiesContainerControl : MonoBehaviour{
 
     public void RemoveFromList(EnemyControl enemy){
         allEnemiesList.Remove(enemy);
+    }
+
+    public void DestroyAllEnemies(){
+        for(int i = 0; i < allEnemiesList.Count;++i){
+            if(allEnemiesList[i] != null){
+                allEnemiesList[i].Die();
+            }
+        }
+        allEnemiesList.Clear();
+    }
+
+    public void IncreaseDifficulty(int difficulty){
+        switch(difficulty){
+            case 3:
+                minSpeedEnemyMovement = minSpeedEnemyMovement + 1;
+                maxSpeedEnemyMovement = maxSpeedEnemyMovement + 1;
+                minTimeToCreateEnemy = minTimeToCreateEnemy - 1;
+                maxTimeToCreateEnemy = maxTimeToCreateEnemy - 1;
+            break;
+
+              case 6:
+                minSpeedEnemyMovement = minSpeedEnemyMovement + 1;
+                maxSpeedEnemyMovement = maxSpeedEnemyMovement + 1;
+                maxTimeToCreateEnemy = maxTimeToCreateEnemy - 1;
+            break;
+
+            default:
+                minSpeedEnemyMovement = minSpeedEnemyMovement + 1;
+                maxSpeedEnemyMovement = maxSpeedEnemyMovement + 1;
+            break;
+        }
     }
 }

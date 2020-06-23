@@ -113,9 +113,22 @@ MonoBehaviour:
   gmManager: {fileID: 0}
   sfxShoot: {fileID: 0}
   sfxDie: {fileID: 0}
+  sfxLives: {fileID: 0}
   allColliderTags:
   - Enemy
   - PlayerLive
+  allShootSprites:
+  - {fileID: 21300000, guid: 9f5111a29d9e53b4d9a6e9234d7ab963, type: 3}
+  - {fileID: 21300000, guid: 1a9dbf43ce27b344f8be624a5cfc3883, type: 3}
+  - {fileID: 21300000, guid: 5c34a3d7475cf714f900cb8d514c98b8, type: 3}
+  - {fileID: 21300000, guid: da8ae1de0c67ef347b48aa67aff3579d, type: 3}
+  allPlayerTypes:
+  - Dark
+  - Water
+  - Plant
+  - Fire
+  currentPlayerType: 0
+  specialAttackQuantity: 2
 --- !u!50 &6125098031987962279
 Rigidbody2D:
   serializedVersion: 4

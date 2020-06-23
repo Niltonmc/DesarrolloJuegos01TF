@@ -22,6 +22,13 @@ public class GameManagerControl : MonoBehaviour{
     [Header("Score Variables")]
     public Text txtScore;
     public int currentScore;
+    private int scoreToDifficulty;
+
+    [Header("Player Special Variables")]
+    public Text txtPlayerSpecial;
+
+    [Header("Player Type Variables")]
+    public Text txtPlayerType;
 
     [Header("SFX Variables")]
     public SFXControl sfxShoot;
@@ -57,6 +64,10 @@ public class GameManagerControl : MonoBehaviour{
      public LoadingControl loadingPlay;
      public LoadingControl loadingMenu;
 
+    [Header("All Enemies Container Variables")]
+    public AllEnemiesContainerControl allEnemiesContainer;
+    public int currentDifficulty;
+    
     // Start is called before the first frame update
     void Start(){
         CreatePlayer();
@@ -102,6 +113,8 @@ public class GameManagerControl : MonoBehaviour{
     public void UpdateScore(int score){
         currentScore = currentScore + score;
         txtScore.text = "SCORE: " + currentScore.ToString();
+        scoreToDifficulty = scoreToDifficulty + score;
+        IncreaseDifficulty();
     }
     public void UpdateLives(int lives){
         allImgPlayerLives[playerLives-1].gameObject.SetActive(false);
@@ -147,5 +160,22 @@ public class GameManagerControl : MonoBehaviour{
         Time.timeScale = 0;
         gameOverContainer.SetActive(true);
         gameOverContainer.GetComponent<GameOverManagerControl>().SetScore(currentScore);
+    }
+
+    public void SetPlayerTpye(string typ){
+        txtPlayerType.text = "TYPE: " + typ;
+    }
+
+    public void SetSpecialTpye(int sp){
+        txtPlayerSpecial.text = "SPECIAL: " + sp.ToString();
+    }
+
+    public void IncreaseDifficulty(){
+        print("ENTRA");
+        if(scoreToDifficulty > 200){
+            currentDifficulty = currentDifficulty + 1;
+            scoreToDifficulty = 0;
+            allEnemiesContainer.IncreaseDifficulty(currentDifficulty);
+        }
     }
 }

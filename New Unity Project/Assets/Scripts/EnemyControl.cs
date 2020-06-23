@@ -9,6 +9,11 @@ public class EnemyControl : MonoBehaviour{
 
     [Header("Other Variables")]
 	private Rigidbody2D rbEnemy;
+    private SpriteRenderer rendEnemy;
+
+    [Header("Enemy Type Variables")]
+    public string enemyTypeString;
+    public int enemyType;
 
     [Header("Enemy Container Variables")]
     public AllEnemiesContainerControl allEnemiesContainer;
@@ -82,6 +87,7 @@ public class EnemyControl : MonoBehaviour{
 
     public void GetInitialComponent () {
 		rbEnemy = GetComponent<Rigidbody2D> ();
+        rendEnemy = GetComponent<SpriteRenderer> ();
 	}
 
     public void SelectSpeed(float minSpeed, float maxSpeed){
@@ -136,4 +142,10 @@ public class EnemyControl : MonoBehaviour{
         Instantiate(explosionPref,transform.position,explosionPref.transform.rotation);
         Destroy(this.gameObject);
     }
+
+     public void SetEnemyType(Sprite spr, int enemVal, string enemStr){
+         rendEnemy.sprite = spr;
+         enemyType = enemVal;
+         enemyTypeString = enemStr;
+     }
 }

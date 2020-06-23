@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9dfd245bfc999764586c1d5dd2249f7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1c39f50c31b4ac4fa3a79d70a285e78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,9 @@ MonoBehaviour:
   damage: 1
   allColliderTags:
   - Player
+  wasPlayerShoot: 0
+  shootTypeString: 
+  shootType: 0
 --- !u!50 &2756971763893380378
 Rigidbody2D:
   serializedVersion: 4

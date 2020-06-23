@@ -52,6 +52,14 @@ public class PlayerControl : MonoBehaviour{
     [Header("Collider Tag Variables")]
     public List<string> allColliderTags;
 
+    [Header("Player Types Variables")]
+    public List<Sprite> allShootSprites;
+    public List<string> allPlayerTypes;
+    public int currentPlayerType;
+
+    [Header("Player Special Attack Variables")]
+    public int specialAttackQuantity;
+
     void Awake(){
         GetInitialComponent();
     }
@@ -79,7 +87,21 @@ public class PlayerControl : MonoBehaviour{
                canShoot = true;
            }
         }
+
+        ChangePlayerType();
+        DoSpecialAttack();
 	}
+
+    void DoSpecialAttack(){
+        if (Input.GetKeyDown(KeyCode.O)){
+            if(specialAttackQuantity > 0){
+                gmManager.allEnemiesContainer.DestroyAllEnemies();
+                specialAttackQuantity = specialAttackQuantity - 1;
+                gmManager.SetSpecialTpye(specialAttackQuantity);
+                sfxDie.PlaySound();
+            }
+        }
+    }
 
 	void FixedUpdate () {
 		vertical = Input.GetAxisRaw ("Vertical");
@@ -101,6 +123,7 @@ public class PlayerControl : MonoBehaviour{
         transform.position.z + shootPositionToCreateOffset.z),
         shootPref.transform.rotation).GetComponent<ShootControl>();
         currentShoot.SetSpeed(shootSpeedMovement);
+        currentShoot.SetShootType(true,allShootSprites[currentPlayerType],currentPlayerType,allPlayerTypes[currentPlayerType]);
         sfxShoot.PlaySound();
     }
 
@@ -142,5 +165,21 @@ public class PlayerControl : MonoBehaviour{
                 break;
             }
         }
+    }
+
+    void ChangePlayerType(){
+        if (Input.GetKeyDown(KeyCode.Q)){
+            currentPlayerType = currentPlayerType - 1;
+            if(currentPlayerType < 0){
+                currentPlayerType = allPlayerTypes.Count - 1;
+            }
+        }
+          if (Input.GetKeyDown(KeyCode.E)){
+            currentPlayerType = currentPlayerType + 1;
+            if(currentPlayerType >= allPlayerTypes.Count){
+                currentPlayerType = 0;
+            }
+        }
+        gmManager.SetPlayerTpye(allPlayerTypes[currentPlayerType]);
     }
 }
