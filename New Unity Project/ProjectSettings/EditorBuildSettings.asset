@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Options.unity
     guid: b47d84cb28d4c634aa50d6a31d1630b8
   - enabled: 1
+    path: Assets/Scenes/Ranking.unity
+    guid: fa3bd4af629b2de4da2ba5480857a7d6
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 7a64ea2129c7c9a4bbd60b88b076f0dc
+  - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 6b8a9525af71d8c448745d26f05b62c8
   m_configObjects: {}

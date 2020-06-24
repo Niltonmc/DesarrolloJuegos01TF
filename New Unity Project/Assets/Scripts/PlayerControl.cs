@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour{
    
     [Header("Movement Variables")]
+    private float initialPlayerSpeedX;
+     private float initialPlayerSpeedY;
 	public float playerSpeedYMovement;
     private float vertical;
-
     public float playerSpeedXMovement;
     private float horizontal;
 
@@ -35,10 +36,12 @@ public class PlayerControl : MonoBehaviour{
     
     [Header("Shoot Movement Variables")]
     public float shootSpeedMovement;
+    private float initialShootSpeedMovement;
 
     [Header("Shoot Time Variables")]
     public bool canShoot;
     public float timeToShoot;
+    private float initialTimeToShoot;
     private float currentTimeToShoot;
 
     [Header("Game Manager Variables")]
@@ -60,8 +63,21 @@ public class PlayerControl : MonoBehaviour{
     [Header("Player Special Attack Variables")]
     public int specialAttackQuantity;
 
+    [Header("Player Power Up Speed Variables")]
+    public bool canDecreaseSpeedPowerUp;
+    public float powerUpSpeedDuration;
+    private float currentPowerUpSpeedDuration;
+
+    public bool canDecreaseShootPowerUp;
+    public float powerUpShootDuration;
+    private float currentPowerUpShootDuration;
+
     void Awake(){
         GetInitialComponent();
+        initialPlayerSpeedX = playerSpeedXMovement;
+        initialPlayerSpeedY = playerSpeedYMovement;
+        initialTimeToShoot = timeToShoot;
+        initialShootSpeedMovement = shootSpeedMovement;
     }
 
     // Start is called before the first frame update
@@ -90,6 +106,8 @@ public class PlayerControl : MonoBehaviour{
 
         ChangePlayerType();
         DoSpecialAttack();
+        StartDecreaseSpeed();
+        StartDecreaseShootSpeed();
 	}
 
     void DoSpecialAttack(){
@@ -163,6 +181,76 @@ public class PlayerControl : MonoBehaviour{
                     EarnLive(1);
                     Destroy(other.gameObject);
                 break;
+                case "PowerUp":
+                    PowerUpControl tmp =  other.gameObject.GetComponent<PowerUpControl>();
+                    switch(tmp.powerUpTypeStr){
+                        case "Speed":
+                            IncreaseSpeed();
+                             Destroy(other.gameObject);
+                        break;
+                         case "Shoot":
+                            IncreaseShootSpeed();
+                             Destroy(other.gameObject);
+                        break;
+                         case "Special":
+                           IncreaseSpecial();
+                             Destroy(other.gameObject);
+                        break;
+                    }
+                break;
+            }
+        }
+    }
+
+    void IncreaseSpecial(){
+         sfxLives.PlaySound();
+         specialAttackQuantity = specialAttackQuantity + 1;
+         gmManager.SetSpecialTpye(specialAttackQuantity);
+    }
+
+    void IncreaseShootSpeed(){
+        timeToShoot = 0.5f;
+         shootSpeedMovement = initialShootSpeedMovement + 3;
+         canDecreaseShootPowerUp = true;
+          sfxLives.PlaySound();
+
+    }
+
+    void DecreaseShootSpeed(){
+        timeToShoot = initialTimeToShoot;
+        shootSpeedMovement = initialShootSpeedMovement;
+        canDecreaseShootPowerUp = false;
+        currentPowerUpShootDuration = 0;
+    }
+
+    void StartDecreaseShootSpeed(){
+        if(canDecreaseShootPowerUp == true){
+            currentPowerUpShootDuration = currentPowerUpShootDuration + Time.deltaTime;
+            if(currentPowerUpShootDuration >= powerUpShootDuration){
+                DecreaseShootSpeed();
+            }
+        }
+    }
+
+    void IncreaseSpeed(){
+        playerSpeedXMovement = playerSpeedXMovement + 4;
+         playerSpeedYMovement = playerSpeedYMovement + 4;
+         canDecreaseSpeedPowerUp = true;
+          sfxLives.PlaySound();
+    }
+
+    void DecreaseSpeed(){
+        playerSpeedXMovement = initialPlayerSpeedX;
+        playerSpeedYMovement = initialPlayerSpeedY;
+        canDecreaseSpeedPowerUp = false;
+        currentPowerUpSpeedDuration = 0;
+    }
+
+    void StartDecreaseSpeed(){
+        if(canDecreaseSpeedPowerUp == true){
+            currentPowerUpSpeedDuration = currentPowerUpSpeedDuration + Time.deltaTime;
+            if(currentPowerUpSpeedDuration >= powerUpSpeedDuration){
+                DecreaseSpeed();
             }
         }
     }

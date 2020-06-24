@@ -67,7 +67,27 @@ public class GameManagerControl : MonoBehaviour{
     [Header("All Enemies Container Variables")]
     public AllEnemiesContainerControl allEnemiesContainer;
     public int currentDifficulty;
+
+    [Header("Power Up Prefabs Variables")]
+    public GameObject powerUpSpeedPref;
+    public GameObject powerUpShootPref;
+    public GameObject powerUpSpecialPref;
+
+     [Header("Power Up Types Variables")]
+    public List<string> allPowerUpTypes;
+    public int currentPowerUpType;
+
+     [Header("Power Up Position Variables")]
+     public float powerUpPosX;
+     public Vector3 powerUpPos;
+    public float minPowerUpPosY;
+    public float maxPowerUpPosY;
     
+    [Header("Power Up Time Variables")]
+    public bool canCreatePowerUp;
+    public float timeToCreatePowerUp;
+    private float currentTimeToCreatePowerUp;
+
     // Start is called before the first frame update
     void Start(){
         CreatePlayer();
@@ -77,6 +97,7 @@ public class GameManagerControl : MonoBehaviour{
         btnRetry.onClick.AddListener(() => RetryLevel());
         btnHome.onClick.AddListener(() => GoHome());
         pauseContainer.SetActive(false);
+        //PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame
@@ -91,6 +112,20 @@ public class GameManagerControl : MonoBehaviour{
             canCreateLive = false;
             currentTimeToCreatePlayerLive = 0;
             CreateLive();
+        }
+
+
+        if(canCreatePowerUp == false){
+             currentTimeToCreatePowerUp = currentTimeToCreatePowerUp + Time.deltaTime;
+            if(currentTimeToCreatePowerUp > timeToCreatePowerUp){
+                canCreatePowerUp = true;
+            }
+        }
+
+        if(canCreatePowerUp == true){
+            canCreatePowerUp = false;
+            currentTimeToCreatePowerUp = 0;
+            CreatePowerUp();
         }
        
     }
@@ -177,5 +212,33 @@ public class GameManagerControl : MonoBehaviour{
             scoreToDifficulty = 0;
             allEnemiesContainer.IncreaseDifficulty(currentDifficulty);
         }
+    }
+
+    public void CreatePowerUp(){
+        float yPos = Random.Range(minPowerUpPosY,maxPowerUpPosY);
+        powerUpPos = new Vector3(powerUpPosX,yPos,0);
+        GameObject powerUpSelected;
+        PowerUpControl currentPowerUp;
+        currentPowerUpType = Random.Range(0,allPowerUpTypes.Count);
+        switch(currentPowerUpType){
+            case 0:
+                powerUpSelected = powerUpSpeedPref;
+            break;
+
+             case 1:
+                powerUpSelected = powerUpShootPref;
+            break;
+
+             case 2:
+                powerUpSelected = powerUpSpecialPref;
+            break;
+
+            default:
+                powerUpSelected = powerUpSpeedPref;
+            break;
+        }
+        currentPowerUp = Instantiate(powerUpSelected, powerUpPos, 
+            powerUpSelected.transform.rotation).GetComponent<PowerUpControl>();
+        currentPowerUp.SetPowerUpType(allPowerUpTypes[currentPowerUpType],currentPowerUpType);
     }
 }

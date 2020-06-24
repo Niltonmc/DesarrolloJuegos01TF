@@ -8,6 +8,7 @@ TagManager:
   - PlayerShoot
   - EnemyShoot
   - PlayerLive
+  - PowerUp
   layers:
   - Default
   - TransparentFX
