@@ -1,0 +1,169 @@
+{
+  "duration": 180,
+  "enemies": 
+  [
+    {
+      "time": 1,
+      "x": 0.05,
+      "health": 70,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 2,
+      "x": 0.1,
+      "health": 70,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 3,
+      "x": 0.1,
+      "health": 70,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 4,
+      "x": 0.1,
+      "health": 70,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 5,
+      "x": 0.1,
+      "health": 80,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 6,
+      "x": 0.1,
+      "health": 80,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 7,
+      "x": 0.9,
+      "health": 80,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 8,
+      "x": 0.9,
+      "health": 80,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 9,
+      "x": 0.9,
+      "health": 80,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 10,
+      "x": 0.9,
+      "health": 100,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 11,
+      "x": 0.9,
+      "health": 100,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 12,
+      "x": 0.9,
+      "health": 100,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 13,
+      "x": 0.1,
+      "health": 100,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 14,
+      "x": 0.1,
+      "health": 100,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 15,
+      "x": 0.1,
+      "health": 100,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 16,
+      "x": 0.1,
+      "health": 130,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 17,
+      "x": 0.1,
+      "health": 130,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "virus",
+      "scale": 1
+    },
+    {
+      "time": 18,
+      "x": 0.1,
+      "health": 60,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "red_enemy",
+      "scale": 1
+    }
+    
+  ]
+}

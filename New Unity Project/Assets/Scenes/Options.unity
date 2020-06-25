@@ -458,7 +458,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'NILTON MERCADO
 
-    JOSE YSIQUE'
+    JOSE YSIQUE
+
+    ALEXANDER TRUJILLANO'
 --- !u!222 &243651764
 CanvasRenderer:
   m_ObjectHideFlags: 0

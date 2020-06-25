@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651426863291578508}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.1849, y: 0.1139, z: 0}
+  m_LocalScale: {x: 1.4557, y: 1.8039, z: 1}
   m_Children:
   - {fileID: 7633025298951522535}
   m_Father: {fileID: 0}
@@ -74,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: -207293731
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dbd16688ccd08e046a53148f49ba7082, type: 3}
+  m_Sprite: {fileID: 4724100757589294153, guid: 16d338e1f7d875041b3c12f29b96243e,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeedXMovement: 4.2053137
+  enemyTypeString: 
+  enemyType: 0
   allEnemiesContainer: {fileID: 0}
   checkPlayerTransform: {fileID: 7633025298951522535}
   distanceOfPlayerCheck: -15
@@ -151,18 +154,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0033644438, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.98, y: 0.5}
+    oldSize: {x: 0.5, y: 0.46}
     newSize: {x: 0.98, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.98, y: 0.5}
+  m_Size: {x: 0.5358796, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &1426931808103188524
 GameObject:

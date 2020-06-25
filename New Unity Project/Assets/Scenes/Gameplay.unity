@@ -319,7 +319,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20e8ff152e47b6d4ab4859af0e95d23d, type: 3}
+  m_Sprite: {fileID: 1548003919399249466, guid: 9be7b21461dd949409cbd888b483b1c1,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -564,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 680, y: 385}
+  m_AnchoredPosition: {x: 686, y: 321}
   m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282736416
@@ -791,7 +792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -680, y: 385}
+  m_AnchoredPosition: {x: -758, y: 311}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &433040659
@@ -2125,7 +2126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -42, y: -74}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &822554310
@@ -2164,7 +2165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425, y: 385}
+  m_AnchoredPosition: {x: 417, y: 319}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822554312
@@ -2779,7 +2780,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20e8ff152e47b6d4ab4859af0e95d23d, type: 3}
+  m_Sprite: {fileID: 1548003919399249466, guid: 9be7b21461dd949409cbd888b483b1c1,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3124,10 +3126,10 @@ MonoBehaviour:
   currentTimeToCreateEnemy: 0
   allEnemiesList: []
   allEnemiesSprites:
-  - {fileID: 21300000, guid: 3f7f9c332e8182745ad1214872f232e8, type: 3}
-  - {fileID: 21300000, guid: 3fc77c34af1605548b0e184ae32595bc, type: 3}
-  - {fileID: 21300000, guid: ded798fde094f654182f616a674f04a8, type: 3}
-  - {fileID: 21300000, guid: f06386256c91fc14ba091025a7892541, type: 3}
+  - {fileID: 4107826327890550477, guid: b3dddab204e6afb4aae740bab23ebd43, type: 3}
+  - {fileID: -5750251026314336153, guid: 77606113016ad2e42af20d696a622814, type: 3}
+  - {fileID: 4724100757589294153, guid: 16d338e1f7d875041b3c12f29b96243e, type: 3}
+  - {fileID: 8004883885421648309, guid: 77606113016ad2e42af20d696a622814, type: 3}
   allEnemiesTypes:
   - Dark
   - Water
@@ -3205,7 +3207,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20e8ff152e47b6d4ab4859af0e95d23d, type: 3}
+  m_Sprite: {fileID: 1548003919399249466, guid: 9be7b21461dd949409cbd888b483b1c1,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3853,7 +3856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235, y: 385}
+  m_AnchoredPosition: {x: -249, y: 315}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1655856415
@@ -4616,7 +4619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 393.99}
+  m_AnchoredPosition: {x: -2, y: 312}
   m_SizeDelta: {x: 2000, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854208716
@@ -4768,7 +4771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85, y: 385}
+  m_AnchoredPosition: {x: 89, y: 317}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874215957
